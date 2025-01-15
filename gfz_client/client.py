@@ -2,11 +2,11 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from client.backends import HTTPBackend, HTTPAsyncBackend
-from client import settings, utils, exceptions, types
+from gfz_client.backends import HTTPBackend, HTTPAsyncBackend
+from gfz_client import settings, utils, exceptions, types
 
 
-logger = logging.getLogger("gfz_api_client")
+logger = logging.getLogger("gfz_client")
 
 
 def as_tuple(data: dict, index: str) -> tuple:
@@ -18,7 +18,7 @@ def as_tuple(data: dict, index: str) -> tuple:
 
 
 class CommonGFZClient:
-    """Common GFZ client methods and properties"""
+    """Common GFZ gfz_client methods and properties"""
     _forecast_link: str = settings.FORECAST_LINK
     _nowcast_link: str = settings.NOWCAST_LINK
 
@@ -178,7 +178,7 @@ class GFZAsyncClient(CommonGFZClient, HTTPAsyncBackend):
                            index: str,
                            status: str = "all") -> tuple[tuple[str] | int, tuple[int] | int, tuple[str] | int]:
         """Get geomagnetic three-hourly Kp index for period as a tuple.
-        Method implements getKpindex method from official python client (https://kp.gfz-potsdam.de/en/data)
+        Method implements getKpindex method from official python gfz_client (https://kp.gfz-potsdam.de/en/data)
         with same behaviour and added for compatibility purposes
             Args:
                 starttime: start UCS time. String in ISO-format, 'Z' as a timezone also possible

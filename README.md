@@ -54,13 +54,13 @@ Method **get_kp_index** implements getKpindex method from official python client
 ### Installation
 
 ```shell
-pip install gfz_api_client
+pip install gfz_client
 ```
 
 ### Classic client
 
 ```python
-from gfz_api_client import GFZClient
+from gfz_client import GFZClient
 
 client = GFZClient()
 
@@ -78,7 +78,7 @@ data = client.get_kp_index(starttime="2011-11-04T00:05:23Z", endtime="2011-11-04
 ### Asynchronous client
 
 ```python
-from gfz_api_client import GFZAsyncClient
+from gfz_client import GFZAsyncClient
 
 client = GFZAsyncClient()
 

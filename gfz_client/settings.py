@@ -1,4 +1,4 @@
-from client.types import IndexType
+from gfz_client.types import IndexType
 
 
 # data sources

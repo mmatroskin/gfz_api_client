@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
-from client import settings
-from client.exceptions import InternalServiceError
+from gfz_client import settings
+from gfz_client.exceptions import InternalServiceError
 
 
 def from_date_string(date_str: str) -> datetime:

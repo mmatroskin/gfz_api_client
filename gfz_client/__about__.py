@@ -1,7 +1,6 @@
-import pathlib
+from gfz_client.__version__ import version
 
-
-__version__ = pathlib.Path("VERSION").read_text().strip()
+__version__ = version
 
 __author__ = "Maksim Tulin"
 __copyright__ = "Copyright {}".format(__author__)

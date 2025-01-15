@@ -1,7 +1,7 @@
 from unittest.mock import patch
 import pytest
 
-from client import GFZClient, GFZAsyncClient
+from gfz_client import GFZClient, GFZAsyncClient
 from tests.utils import MockRequests, MockClientResponse
 
 test_data = (

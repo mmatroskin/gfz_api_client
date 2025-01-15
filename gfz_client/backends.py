@@ -9,9 +9,9 @@ from aiohttp import ClientConnectionError, ClientSession, ClientTimeout, hdrs, S
 import requests
 import ujson
 
-from client import exceptions, settings
+from gfz_client import exceptions, settings
 
-logger = logging.getLogger("gfz_api_client")
+logger = logging.getLogger("gfz_client")
 
 
 class CommonHTTPBackendProperties(ABC):

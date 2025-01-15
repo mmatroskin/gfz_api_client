@@ -1,8 +1,8 @@
 import asyncio
 import time
 
-from client import GFZClient, GFZAsyncClient
-from client.types import IndexType
+from gfz_client import GFZClient, GFZAsyncClient
+from gfz_client.types import IndexType
 
 
 START = "2024-07-15T00:00:00Z"

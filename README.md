@@ -12,8 +12,8 @@ Official API description : https://kp.gfz-potsdam.de/en/data
 Library provides Classic and Asynchronous client classes for using in python applications.
 
 ## Features:
-- Getting geomagnetic index forecast (as a python Dict)
-- Getting geomagnetic three-hourly index for period (as a python Dict)
+- Getting geomagnetic index forecast (as a Dict)
+- Getting geomagnetic three-hourly index for period (as a Dict)
 - Getting geomagnetic three-hourly index for period as a Tuple (like official client by GFZ German Research Centre for Geosciences)
 
 ## Classes
@@ -54,7 +54,7 @@ Method **get_kp_index** implements getKpindex method from official python client
 ### Installation
 
 ```shell
-pip install gfz_client
+pip install gfz_api_client
 ```
 
 ### Classic client

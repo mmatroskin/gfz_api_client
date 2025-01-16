@@ -1,0 +1,9 @@
+-r lib.txt
+
+#test
+-r test.txt
+
+# build
+setuptools
+twine
+wheel

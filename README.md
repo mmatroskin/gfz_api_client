@@ -36,14 +36,14 @@ Parameter `index` define index for data request. Should be in `('Kp','Hp30', 'Hp
 ### get_nowcast(start_time, end_time, index, [data_state])
 
 Returns Dict with geomagnetic three-hourly Index for period. 
-Parameters `start_time` and `end_time` defines time period, date format: `'YYYY-MM-DD'` or `'YYYY-MM-DDThh:mm:ss'`
+Parameters `start_time` and `end_time` defines time period. Both should be string with UTC date/time, format: `'YYYY-MM-DD'` or `'YYYY-MM-DDThh:mm:ss'`
 Parameter `index` define index for data request. Should be in `('Kp', 'ap', 'Ap', 'Cp', 'C9', 'Hp30', 'Hp60', 'ap30', 'ap60', 'SN', 'Fobs', 'Fadj')`
 Optional Parameter `data_state` define index state. Possible values: `'def', 'all'`. Output of definitive values only (only for **Kp, ap, Ap, Cp, C9, SN**) 
 
 ### get_kp_index(starttime, endtime, index, [status])
 
 Returns tuple with geomagnetic three-hourly Index for period or `(0, 0, 0)` in an Error case. 
-Parameters `starttime` and `endtime` defines time period, date format: `'YYYY-MM-DD'` or `'YYYY-MM-DDThh:mm:ss'`
+Parameters `starttime` and `endtime` defines time period. Both should be string with UTC date/time, format: `'YYYY-MM-DD'` or `'YYYY-MM-DDThh:mm:ss'`
 Parameter `index` define index for data request. Should be in `('Kp', 'ap', 'Ap', 'Cp', 'C9', 'Hp30', 'Hp60', 'ap30', 'ap60', 'SN', 'Fobs', 'Fadj')`
 Optional Parameter `status` define index state. Possible values: `'def', 'all'`. Output of definitive values only (only for **Kp, ap, Ap, Cp, C9, SN**)
 
@@ -54,7 +54,7 @@ Method **get_kp_index** implements getKpindex method from official python client
 ### Installation
 
 ```shell
-pip install gfz_api_client
+pip install gfz-api-client
 ```
 
 ### Classic client

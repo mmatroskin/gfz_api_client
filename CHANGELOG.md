@@ -1,3 +1,9 @@
+### [0.0.4] - 2025-01-17
+#### changed
+- README fixed
+#### added
+- Alpha
+
 ### [0.0.3] - 2025-01-15
 #### added
 - Pre-Alpha

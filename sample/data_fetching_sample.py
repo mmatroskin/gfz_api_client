@@ -1,7 +1,7 @@
 import asyncio
 import time
 
-from gfz_client import GFZClient, GFZAsyncClient
+from gfz_client import GFZClient, GFZAsyncClient, exceptions
 from gfz_client.types import IndexType
 
 
@@ -10,6 +10,7 @@ END = "2025-01-14T23:59:59Z"
 
 
 def main():
+    print("Classic client")
     total_start_time = time.time()
     client = GFZClient()
     start_time = time.time()
@@ -25,10 +26,16 @@ def main():
     result = test_results(test_result_0_kp, test_result_0_hp3, test_result_0_hp6, test_result_1_kp,
         test_result_1_hp, test_result_2_kp, test_result_2_hp)
     result_duration = round((time.time() - total_start_time), 3)
-    print(f"Classic: {result}, Requests time: {duration}sec, Total time: {result_duration}sec")
+    print(f"Result: {result}, Requests time: {duration}sec, Total time: {result_duration}sec")
+    try:
+        test_result_error = client.get_nowcast(START, END, "fake_index")
+    except exceptions.InternalServiceError as exc:
+        print("Error:", str(exc), sep=" ")
+    print("Done", end="\n\n")
 
 
 async def main_async():
+    print("Async client")
     total_start_time = time.time()
     client = GFZAsyncClient()
     start_time = time.time()
@@ -44,7 +51,10 @@ async def main_async():
     result = test_results(test_result_0_kp, test_result_0_hp3, test_result_0_hp6, test_result_1_kp,
         test_result_1_hp, test_result_2_kp, test_result_2_hp)
     result_duration = round((time.time() - total_start_time), 3)
-    print(f"Async: {result}, Requests time: {duration}sec, Total time: {result_duration}sec")
+    print(f"Result: {result}, Requests time: {duration}sec, Total time: {result_duration}sec")
+    test_result_error = await client.get_kp_index(START, END, "fake_index")
+    print("Error Result:", test_result_error, sep=" ")
+    print("Done", end="\n")
 
 
 def test_results(test_result_0_kp,
@@ -66,5 +76,6 @@ def test_results(test_result_0_kp,
 
 
 if __name__ == '__main__':
+    print("\n")
     main()
     asyncio.run(main_async())

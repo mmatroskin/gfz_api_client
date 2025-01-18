@@ -2,29 +2,28 @@
 
 ## Description
 
-Unofficial client for **Helmholtz Centre for Geosciences Web Service API**. For getting Geomagnetic Index (Kp, etc) 
+Unofficial client for **Helmholtz Centre for Geosciences** Web Service API. For getting Geomagnetic Index (Kp, etc) 
 Nowcast and Forecast data (https://spaceweather.gfz-potsdam.de/products-data/forecasts/forecast-kp-index). 
 Kp is an important measure for the energy input from the solar wind to Earth and it is used by space weather services in near real-time. 
 The geomagnetic Hpo index is a Kp-like index with a time resolution of half an hour, called Hp30, and one hour, called Hp60.
 
 Official API description : https://kp.gfz-potsdam.de/en/data
 
-Library provides Classic and Asynchronous client classes for using in python applications.
+***Python 3.10+ requires***
 
-## Features:
+## Features
+
 - Getting geomagnetic index forecast (as a Dict)
 - Getting geomagnetic three-hourly index for period (as a Dict)
-- Getting geomagnetic three-hourly index for period as a Tuple (like official client by GFZ German Research Centre for Geosciences)
+- Getting geomagnetic three-hourly index for period as a Tuple (like an official client by GFZ German Research Centre for Geosciences)
 
 ## Classes
 
-### GFZClient
+Library provides Classic and Asynchronous client classes for using in python applications:
 
-Classic client class for Web Service API
+**GFZClient** - Classic client class for Web Service API
 
-### GFZAsyncClient
-
-Asynchronous client class for Web Service API
+**GFZAsyncClient** - Asynchronous client class for Web Service API
 
 ## Methods
 

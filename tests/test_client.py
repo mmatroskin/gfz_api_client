@@ -83,10 +83,7 @@ test_data = (
 def test_client(monkeypatch, data, response, expected):
     client = GFZClient()
     MockRequests(monkeypatch=monkeypatch, response_body=response[0], response_status=response[1])
-    try:
-        result = client.get_kp_index(data[0], data[1], data[2], status=data[3])
-    except Exception as exc:
-        result = exc
+    result = client.get_kp_index(data[0], data[1], data[2], status=data[3])
     assert result == expected["get_kp_index"]
     try:
         result = client.get_nowcast(data[0], data[1], data[2], data_state=data[3])
@@ -106,10 +103,7 @@ def test_client(monkeypatch, data, response, expected):
 async def test_async_client(mock_engine, data, response, expected):
     mock_engine.return_value.__aenter__.return_value = MockClientResponse(content=response[0], status=response[1])
     client = GFZAsyncClient()
-    try:
-        result = await client.get_kp_index(data[0], data[1], data[2], status=data[3])
-    except Exception as exc:
-        result = exc
+    result = await client.get_kp_index(data[0], data[1], data[2], status=data[3])
     assert result == expected["get_kp_index"]
     try:
         result = await client.get_nowcast(data[0], data[1], data[2], data_state=data[3])

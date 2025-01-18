@@ -9,22 +9,21 @@ The geomagnetic Hpo index is a Kp-like index with a time resolution of half an h
 
 Official API description : https://kp.gfz-potsdam.de/en/data
 
-Library provides Classic and Asynchronous client classes for using in python applications.
+***Python 3.10+ requires***
 
 ## Features
+
 - Getting geomagnetic index forecast (as a Dict)
 - Getting geomagnetic three-hourly index for period (as a Dict)
 - Getting geomagnetic three-hourly index for period as a Tuple (like an official client by GFZ German Research Centre for Geosciences)
 
 ## Classes
 
-### GFZClient
+Library provides Classic and Asynchronous client classes for using in python applications:
 
-Classic client class for Web Service API
+**GFZClient** - Classic client class for Web Service API
 
-### GFZAsyncClient
-
-Asynchronous client class for Web Service API
+**GFZAsyncClient** - Asynchronous client class for Web Service API
 
 ## Methods
 

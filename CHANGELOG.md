@@ -1,3 +1,9 @@
+### [0.0.5] - 2025-01-18
+#### changed
+- tests fixed
+- sample file moved
+- python min version 3.10
+
 ### [0.0.4] - 2025-01-17
 #### changed
 - README fixed

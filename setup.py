@@ -41,6 +41,6 @@ setuptools.setup(
         "Programming Language :: Python :: 3.13",
         "Programming Language :: Python :: 3 :: Only",
     ],
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     install_requires=pathlib.Path("requirements/lib.txt").read_text().split(),
 )

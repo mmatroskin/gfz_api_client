@@ -29,3 +29,4 @@ STATE_LIST = ('all', 'def')
 
 # misc
 REQUEST_TIMEOUT_SEC = 30
+TEST_DATA = "test_case.json"

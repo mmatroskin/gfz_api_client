@@ -17,8 +17,16 @@ def main():
     test_result_0_kp = client.get_forecast(IndexType.Kp.value)
     test_result_0_hp3 = client.get_forecast(IndexType.Hp30.value)
     test_result_0_hp6 = client.get_forecast(IndexType.Hp60.value)
-    test_result_1_kp = client.get_nowcast(START, END, IndexType.Kp.value)
-    test_result_1_hp = client.get_nowcast(START, END, IndexType.Hp60.value)
+    try:
+        test_result_1_kp = client.get_nowcast(START, END, IndexType.Kp.value)
+    except exceptions.ExternalServiceCommonError as exc:
+        test_result_1_kp = None
+        print(str(exc))
+    try:
+        test_result_1_hp = client.get_nowcast(START, END, IndexType.Hp60.value)
+    except exceptions.ExternalServiceCommonError as exc:
+        test_result_1_hp = None
+        print(str(exc))
     test_result_2_kp = client.get_kp_index(START, END, IndexType.Kp.value)
     test_result_2_hp = client.get_kp_index(START, END, IndexType.Hp60.value)
     end_time = time.time()
@@ -42,8 +50,16 @@ async def main_async():
     test_result_0_kp = await client.get_forecast(IndexType.Kp.value)
     test_result_0_hp3 = await client.get_forecast(IndexType.Hp30.value)
     test_result_0_hp6 = await client.get_forecast(IndexType.Hp60.value)
-    test_result_1_kp = await client.get_nowcast(START, END, IndexType.Kp.value)
-    test_result_1_hp = await client.get_nowcast(START, END, IndexType.Hp60.value)
+    try:
+        test_result_1_kp = await client.get_nowcast(START, END, IndexType.Kp.value)
+    except exceptions.ExternalServiceCommonError as exc:
+        test_result_1_kp = None
+        print(str(exc))
+    try:
+        test_result_1_hp = await client.get_nowcast(START, END, IndexType.Hp60.value)
+    except exceptions.ExternalServiceCommonError as exc:
+        test_result_1_hp = None
+        print(str(exc))
     test_result_2_kp = await client.get_kp_index(START, END, IndexType.Kp.value)
     test_result_2_hp = await client.get_kp_index(START, END, IndexType.Hp60.value)
     end_time = time.time()

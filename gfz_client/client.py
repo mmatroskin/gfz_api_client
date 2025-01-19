@@ -1,4 +1,3 @@
-from __future__ import annotations
 import logging
 from typing import Any
 
@@ -21,6 +20,7 @@ class CommonGFZClient:
     """Common GFZ gfz_client methods and properties"""
     _forecast_link: str = settings.FORECAST_LINK
     _nowcast_link: str = settings.NOWCAST_LINK
+    _ERROR_MESSAGE_FIELD: str = "message"
 
     def _get_params(self, start_time: str, end_time: str, index: str, data_state: str) -> dict:
         """Get query params"""
@@ -54,9 +54,11 @@ class CommonGFZClient:
     def _check_response(self, response: Any, status: int) -> None:
         """"""
         if status != 200:
-            raise exceptions.ExternalServiceCommonError(f"Remote service response status: {status}")
+            raise exceptions.ExternalServiceCommonError(f"Remote service responded status: {status}")
         if not isinstance(response, dict) or not response:
             raise exceptions.ExternalServiceCommonError("Invalid response")
+        if msg := response.get("message"):
+            raise exceptions.ExternalServiceCommonError(f"Remote service responded message: {msg}")
 
 
 class GFZClient(CommonGFZClient, HTTPBackend):
@@ -126,7 +128,7 @@ class GFZClient(CommonGFZClient, HTTPBackend):
             return 0, 0, 0
         else:
             if not data:
-                logger.warning("Remote service respond: None")
+                logger.warning(f"Remote service respond: {data}")
                 return 0, 0, 0
             return as_tuple(data, index)
 
@@ -198,6 +200,6 @@ class GFZAsyncClient(CommonGFZClient, HTTPAsyncBackend):
             return 0, 0, 0
         else:
             if not data:
-                logger.warning("Remote service respond: None")
+                logger.warning(f"Remote service respond: {data}")
                 return 0, 0, 0
             return as_tuple(data, index)

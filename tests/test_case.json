@@ -1,0 +1,91 @@
+[
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:24","Kp","def"],
+    [
+      {
+        "Kp":[10],
+        "datetime":[],
+        "status":["test"]
+      },
+      200
+    ],
+    {
+      "get_kp_index":[[],[10],["test"]],
+      "get_nowcast":{
+        "Kp":[10],
+        "datetime":[],
+        "status":["test"]
+      },
+      "get_forecast":{
+        "Kp":[10],
+        "datetime":[],
+        "status":["test"]
+      }
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:24","Kp","def"],
+    [null,400],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Remote service responded status: 400",
+      "get_forecast":"Remote service responded status: 400"
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:22","Kp","def"],
+    [null,200],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Start time must be before or equal to end time",
+      "get_forecast":"Invalid response"
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23z","2011-11-04T00:05:24","Kp","def"],
+    [null,200],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Malformed date parameter on input",
+      "get_forecast":"Invalid response"
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:24","Kp0","def"],
+    [null,null],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Malformed parameter on input: index",
+      "get_forecast":"Malformed parameter on input"
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:24","Fobs","def"],
+    [null,200],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Invalid response",
+      "get_forecast":"Malformed parameter on input"
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:24","Kp","test"],
+    [null,200],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Malformed parameter on input: status",
+      "get_forecast":"Invalid response"
+    }
+  ],
+  [
+    ["2011-11-04T00:05:23Z","2011-11-04T00:05:24","Kp","all"],
+    [
+      {"message":"TEST"},
+      200],
+    {
+      "get_kp_index":[0,0,0],
+      "get_nowcast":"Remote service responded message: TEST",
+      "get_forecast":"Remote service responded message: TEST"
+    }
+  ]
+]

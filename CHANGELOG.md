@@ -1,4 +1,6 @@
 ### [0.0.5] - 2025-01-18
+#### added
+- "message" response field processing
 #### changed
 - tests fixed
 - sample file moved

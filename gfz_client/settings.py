@@ -1,5 +1,4 @@
-from gfz_client.types import IndexType
-
+from gfz_client.types import IndexType, StateType
 
 # data sources
 NOWCAST_LINK = "https://kp.gfz-potsdam.de/app/json/"
@@ -11,22 +10,37 @@ FORECAST_HP6_PATH = "SW-Monitor/hp60_product_file_FORECAST_HP60_SWIFT_DRIVEN_LAS
 
 # indexes
 INDEX_LIST = (
-    IndexType.Kp.value,
-    "ap",
-    "Ap",
-    "Cp",
-    "C9",
-    IndexType.Hp30.value,
-    IndexType.Hp60.value,
-    "ap30",
-    "ap60",
-    "SN",
-    "Fobs",
-    "Fadj"
+    IndexType.Kp,
+    IndexType.ap,
+    IndexType.Ap,
+    IndexType.Cp,
+    IndexType.C9,
+    IndexType.Hp30,
+    IndexType.Hp60,
+    IndexType.ap30,
+    IndexType.ap60,
+    IndexType.SN,
+    IndexType.Fobs,
+    IndexType.Fadj
 )
-STATE_INDEX_LIST = (IndexType.Kp.value, "ap", "Ap", "Cp", "C9", "SN")
-STATE_LIST = ('all', 'def')
+
+FORECAST_INDEX_LIST = (
+    IndexType.Kp,
+    IndexType.Hp30,
+    IndexType.Hp60,
+)
+
+STATE_INDEX_LIST = (
+    IndexType.Kp,
+    IndexType.ap,
+    IndexType.Ap,
+    IndexType.Cp,
+    IndexType.C9,
+    IndexType.SN
+)
+
+STATE_LIST = (StateType.ALL, StateType.DEFINED)
 
 # misc
-REQUEST_TIMEOUT_SEC = 30
+REQUEST_TIMEOUT_SEC = 15
 TEST_DATA = "test_case.json"

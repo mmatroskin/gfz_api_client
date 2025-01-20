@@ -24,8 +24,8 @@ def check_date(start_time: datetime, end_time: datetime):
         raise InternalServiceError("Start time must be before or equal to end time")
 
 
-def check_index_name(index: str):
-    if index not in settings.INDEX_LIST:
+def check_index_name(index: str, is_forecast: bool = False):
+    if index not in settings.INDEX_LIST or is_forecast and index not in settings.FORECAST_INDEX_LIST:
         raise InternalServiceError("Malformed parameter on input: index")
 
 

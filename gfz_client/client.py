@@ -100,7 +100,7 @@ class GFZClient(CommonGFZClient, HTTPBackend, AbstractClient):
         Returns:
             Dict, contains index forecast data
         """
-        utils.check_index_name(index)
+        utils.check_index_name(index, is_forecast=True)
         response, status = self._execute_request(method="GET", url=self._get_forecast_url(index))
         self._validate_response(response, status)
         return response
@@ -172,7 +172,7 @@ class GFZAsyncClient(CommonGFZClient, HTTPAsyncBackend, AbstractAsyncClient):
         Returns:
             Dict, contains index forecast data
         """
-        utils.check_index_name(index)
+        utils.check_index_name(index, is_forecast=True)
         response, status = await self._make_request(method="GET", url=self._get_forecast_url(index))
         self._validate_response(response, status)
         return response

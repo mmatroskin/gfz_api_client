@@ -1,3 +1,10 @@
+### [0.1.0] - 2025-01-28
+#### changed
+- fixed some errors
+- sample file updated
+#### added
+- Beta
+
 ### [0.0.6] - 2025-01-19
 #### added
 - "message" response field processing

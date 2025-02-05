@@ -1,4 +1,3 @@
-from abc import ABC
 import logging
 import time
 from uuid import uuid4
@@ -13,12 +12,12 @@ from gfz_client import exceptions, settings
 logger = logging.getLogger("gfz_client")
 
 
-class CommonHTTPBackendProperties(ABC):
+class CommonHTTPBackendProperties:
     """Common Backend properties and methods"""
     _request_timeout_sec: int = settings.REQUEST_TIMEOUT_SEC
 
 
-class HTTPBackend(CommonHTTPBackendProperties, ABC):
+class HTTPBackend(CommonHTTPBackendProperties):
     """Backend Base Class"""
 
     def _execute_request(self, method: str, url: str, **kwargs) -> tuple[dict | None, int]:
@@ -62,12 +61,13 @@ class HTTPBackend(CommonHTTPBackendProperties, ABC):
         )
         try:
             data = response.json()
-        except ValueError:
+        except (ValueError, TypeError) as err:
+            logger.error(str(err))
             data = None
         return data, response.status_code
 
 
-class HTTPAsyncBackend(CommonHTTPBackendProperties, ABC):
+class HTTPAsyncBackend(CommonHTTPBackendProperties):
     """Async Backend Base Class"""
 
     async def _make_request(self, method: str, url: str, **kwargs) -> tuple[dict | None, int]:
@@ -107,4 +107,9 @@ class HTTPAsyncBackend(CommonHTTPBackendProperties, ABC):
             "Remote service response: request_id=%s duration=%d status=%s",
             request_id, duration, response.status,
         )
-        return ujson.loads(response_body) if response_body else None, response.status
+        try:
+            data = ujson.loads(response_body)
+        except (ValueError, TypeError) as err:
+            logger.error(str(err))
+            data = None
+        return data, response.status

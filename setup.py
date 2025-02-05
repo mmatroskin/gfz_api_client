@@ -27,7 +27,7 @@ setuptools.setup(
     include_package_data=True,
     license_files=["LICENSE"],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",

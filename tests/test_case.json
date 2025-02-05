@@ -56,7 +56,7 @@
     {
       "get_kp_index":[0,0,0],
       "get_nowcast":"Malformed parameter on input: index",
-      "get_forecast":"Malformed parameter on input"
+      "get_forecast":"Malformed parameter on input: index"
     }
   ],
   [
@@ -65,7 +65,7 @@
     {
       "get_kp_index":[0,0,0],
       "get_nowcast":"Invalid response",
-      "get_forecast":"Malformed parameter on input"
+      "get_forecast":"Malformed parameter on input: index"
     }
   ],
   [
